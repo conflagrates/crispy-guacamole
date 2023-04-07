@@ -8,7 +8,7 @@ local uis = game:GetService("UserInputService")
 
 -- // Menu
 local Window = Library:Window({
-    text = "Yor's"
+    text = "Yor's Hub"
 })
 
 local Credits1 = Window:TabSection({
@@ -43,19 +43,17 @@ MainSection:Toggle({
     state = false,
     callback = function(boolean)
         -- // Basic Toggle
-        if state == false then
+        if state and boolean == false then
         boolean = true
+		state = true
         _G.autoBlock = true
         else
         boolean = false
+		state = false
         _G.autoBlock = false
         end
     end
 })
-
-while _G.autoBlock do
-autoBlock()
-end
 
 -- // Guardian
 loadstring(game:HttpGet("https://raw.githubusercontent.com/euronetic/crispy-guacamole/main/required/guardian.lua"))()
