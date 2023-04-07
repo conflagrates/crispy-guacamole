@@ -17,7 +17,7 @@ local creditsection1 = Main:Section({
     text = "lv#7305"
 })
 
-_G.autoFarm = false
+_G.autoFarm = nil
 function autoFarm()
 -- // Variables
 local Jogador = game:GetService("Players").LocalPlayer
