@@ -82,6 +82,11 @@ creditsection1:Toggle({
     state = false, -- Default boolean
     callback = function(boolean)
         _G.autoFarm = boolean
+        if state == false then
+        state = true
+        else
+        state = false
+        end
         while _G.autoFarm == true do
         autoFarm()
         end
