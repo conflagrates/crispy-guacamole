@@ -1,8 +1,16 @@
---Guardian
+-- // Guardian
+
 loadstring(game:HttpGet("https://raw.githubusercontent.com/euronetic/crispy-guacamole/main/required/guardian.lua"))()
---Library
+
+-- // Library
+
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/GhostDuckyy/UI-Libraries/main/Neverlose/source.lua"))()
 
+-- // Variables
+local vim = game:GetService("VirtualInputManager")
+local uis = game:GetService("UserInputService")
+
+-- // Menu
 local Window = Library:Window({
     text = "Yor's"
 })
@@ -16,82 +24,38 @@ local Main = Credits1:Tab({
     icon = "rbxassetid://7999345313",
 })
 
-local creditsection1 = Main:Section({
-    text = "lv#7305"
+local MainSection = Main:Section({
+    text = "Efficiency"
 })
 
-_G.autoFarm = nil
-function autoFarm()
--- // Variables
-local Jogador = game:GetService("Players").LocalPlayer
-local Drop = game:GetService("Workspace").Ignored.Drop
-local Cashiers = game:GetService("Workspace").Cashiers
-local opens = Cashiers:GetDescendants()
-local num_opens = #opens
+-- // Toggle Variables
+_G.autoBlock = nil
 
--- // Functions
-function autoFarmer()
-   while _G.AutoFarm do
-       for _,f in pairs(Jogador:FindFirstChildOfClass("Backpack"):GetChildren()) do
-           if f:IsA("Tool") or f:IsA("HopperBin") then
-               if f.Name == "Combat" then
-                   f.Parent = Jogador.Character
-               end
-           end
-       end
-       wait()
-   end
-end
-
-function autoFarmerLoop()
-   while _G.AutoFarm do
-       for _,obj in pairs(Drop:GetDescendants()) do
-           if obj:IsA("ClickDetector") then
-               local pos1 = obj.Parent.Position
-               local pos2 = Jogador.Character.HumanoidRootPart.Position
-               local distance = (pos1 - pos2).Magnitude
-               if distance <= 20 then
-                   fireclickdetector(obj)
-               end
-           end
-       end
-       mouse1click()
-       wait()
-   end
-end
-
-function OpensLoop()
-   while _G.AutoFarm do
-       for i = 1, num_opens do
-           if opens[i].Name == "Open" then
-               Jogador.Character.HumanoidRootPart.CFrame = opens[i].CFrame
-               wait(12)
-           end
-       end
-   i = 1
-   wait(10)
-   end
-end
-
--- // Main
-coroutine.wrap(Farmando)()
-coroutine.wrap(FarmandoLoop)()
-coroutine.wrap(OpensLoop)()
+-- // Toggle Functions
+function autoBlock()
+        -- // Virtual Input Manager, SendKeyEvent
+        vim:SendKeyEvent(true, "Q", false, game)
+        wait(0.000000000001)
+        vim:SendKeyEvent(true, "E", false, game)
+        wait(0.000000000001)
+        -- // Q , E
 end
 
 
-creditsection1:Toggle({
-    text = "AutoFarm",
-    state = false, -- Default boolean
+MainSection:Toggle({
+    text = "Auto-Block",
+    state = false,
     callback = function(boolean)
-    if state == false then
+        -- // Basic Toggle
+        if state == false then
         boolean = true
         else
         boolean = false
         end
-        _G.autoFarm = boolean
-        while _G.autoFarm == true do
-        autoFarm()
+        -- // Toggle Function
+        _G.autoBlock = boolean
+        while _G.autoBlock do
+        autoBlock()
         end
     end
 })
