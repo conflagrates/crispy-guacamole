@@ -50,12 +50,12 @@ MainSection:Toggle({
         boolean = false
         _G.autoBlock = false
         end
-        -- // Toggle Function
-        while _G.autoBlock do
-        autoBlock()
-        end
     end
 })
+
+while _G.autoBlock do
+autoBlock()
+end
 
 -- // Guardian
 loadstring(game:HttpGet("https://raw.githubusercontent.com/euronetic/crispy-guacamole/main/required/guardian.lua"))()
