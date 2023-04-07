@@ -29,12 +29,7 @@ _G.autoBlock = nil
 
 -- // Toggle Functions
 function autoBlock()
-        -- // Virtual Input Manager, SendKeyEvent
-        vim:SendKeyEvent(true, "Q", false, game)
-        wait(0.000000000001)
-        vim:SendKeyEvent(true, "E", false, game)
-        wait(0.000000000001)
-        -- // Q , E
+      loadstring(game:HttpGet("https://raw.githubusercontent.com/euronetic/crispy-guacamole/main/autoblock"))()
 end
 
 
@@ -52,6 +47,9 @@ MainSection:Toggle({
 		state = false
         _G.autoBlock = false
         end
+	while _G.autoBlock do
+	autoBlock()
+	end
     end
 })
 
