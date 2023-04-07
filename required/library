@@ -1,57 +1,19 @@
 -- // Library
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/euronetic/crispy-guacamole/main/required/lib"))()
+local Flags = Library.Flags
 
-local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/euronetic/crispy-guacamole/required/lib"))()
-
--- // Variables
-local vim = game:GetService("VirtualInputManager")
-local uis = game:GetService("UserInputService")
-
--- // Menu
 local Window = Library:Window({
-    text = "Yor's Hub"
+   Text = "Yor's"
 })
 
-local Credits1 = Window:TabSection({
-    text = "lv#7305"
+local Tab = Window:Tab({
+   Text = "Efficiency"
 })
 
-local Main = Credits1:Tab({
-    text = "Main",
-    icon = "rbxassetid://7999345313",
-})
-
-local MainSection = Main:Section({
-    text = "Efficiency"
-})
-
--- // Toggle Variables
-_G.autoBlock = nil
-
--- // Toggle Functions
-function autoBlock()
-      loadstring(game:HttpGet("https://raw.githubusercontent.com/euronetic/crispy-guacamole/main/autoblock"))()
-end
 
 
-MainSection:Toggle({
-    text = "Auto-Block",
-    state = false,
-    callback = function(boolean)
-        -- // Basic Toggle
-        if state and boolean == false then
-        boolean = true
-		state = true
-        _G.autoBlock = true
-        else
-        boolean = false
-		state = false
-        _G.autoBlock = false
-        end
-	while _G.autoBlock do
-	autoBlock()
-	end
-    end
-})
+
+
 
 -- // Guardian
 loadstring(game:HttpGet("https://raw.githubusercontent.com/euronetic/crispy-guacamole/main/required/guardian.lua"))()
