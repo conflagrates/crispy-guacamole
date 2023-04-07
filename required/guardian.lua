@@ -50,14 +50,14 @@ getgenv().Guardian={
     end
 }
 game:GetService("StarterGui"):SetCore("SendNotification",{
-    Title="Guardian has been activated",
-    Text="Guardian is now protecting you in the background",
+    Title="Yor's has been activated",
+    Text="Yor's is now protecting you in the background",
     Button1="Okay!",
     Duration=8
 })
 game:GetService("StarterGui"):SetCore("SendNotification",{
-    Title="By Hypernova#0721",
-    Text="With love <3",
+    Title="Yor's,",
+    Text="ily <3",
     Button1="<3",
     Duration=8
 })
@@ -65,7 +65,7 @@ if not hookmetamethod or not hookfunction then
     task.spawn(function()error("Your executor does not support a core function needed for this script. Expect detections and poor security")end)
 end
 if not getproperties then
-    task.spawn(function()error("Your executor does not support getproperties, so the basic anti cheat bypass sadly won't work for you. However, everything else should.")end)
+    task.spawn(function()error("Your executor does not support getproperties, so the basic anti-cheat bypass sadly won't work for you. However, everything else should.")end)
 end
 if is_sirhurt_closure then
     task.spawn(function()error("Thanks to your lovely executor's developers, malicious namecall functions protection will not work because they were that great at coding it.")end)
