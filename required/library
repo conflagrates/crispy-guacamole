@@ -9,7 +9,7 @@ local Essentials = Main:Tab("Essentials")
 -- // Sections
 local Efficiency = Essentials:Section({Name = "Efficiency", column = 1})
 local Visuals = Essentials:Section({Name = "Visuals", column = 1})
-local HumanoidS = Essentials:Section({Name = "Humanoid", column = 2})
+local PlayerS = Essentials:Section({Name = "Player", column = 2})
 
 -- // Normal Vars
 local vim = game:GetService("VirtualInputManager")
@@ -101,7 +101,7 @@ local ballesp = Visuals:Toggle({Name = "Ball ESP", Flag = "ballesp", callback = 
     end
 end})
 
-local Speed = HumanoidS:Slider({Name = "WalkSpeed", Min = 28, Max = 80, Default = 28, Flag = "Slider", Callback = function(slider)
+local Speed = PlayerS:Slider({Name = "WalkSpeed", Min = 28, Max = 80, Default = 28, Flag = "Slider", Callback = function(slider)
    local humanoid = game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid")
    while wait do
 	   humanoid.WalkSpeed = slider
