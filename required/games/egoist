@@ -127,5 +127,6 @@ local BonBind = Bons:Button({Name = "Bon Binds - Z, X", Callback = function()
    vim:SendKeyEvent(true, "E", false, game)
    wait(0.5)
    vim:SendKeyEvent(true, "E", false, game)
+   end
    end)
 end})
