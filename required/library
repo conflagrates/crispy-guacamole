@@ -106,6 +106,10 @@ local Speed = PlayerS:Slider({Name = "WalkSpeed", Min = 28, Max = 120, Default =
    while wait do
 	   humanoid.WalkSpeed = slider
 	   task.wait(nil)
+	   humanoid.Died:Connect(function()
+	   humanoid.WalkSpeed = slider
+	   task.wait(nil)
+	   end)
    end
 end})
 
