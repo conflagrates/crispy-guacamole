@@ -128,7 +128,7 @@ local ballesp = Visuals:Toggle({Name = "Ball ESP", Flag = "ballesp", callback = 
     end
 end})
 
-local Speed = PlayerS:Slider({Name = "WalkSpeed", Min = 28, Max = 80, Default = 28, Flag = "Slider", Callback = function(slider)
+local Speed = PlayerS:Slider({Name = "WalkSpeed", Min = 28, Max = 120, Default = 28, Flag = "Slider", Callback = function(slider)
    local humanoid = game:GetService("Players").LocalPlayer.Character:WaitForChild("Humanoid")
    while wait do
 	   humanoid.WalkSpeed = slider
