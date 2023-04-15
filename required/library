@@ -1,7 +1,7 @@
 -- // Key System
 local req = (syn and syn.request) or (http and http.request) or http_request
 
-local key_Skeet = _G.key -- get a key from the discord bot
+local key_Skeet = "your key" -- get a key from the discord bot
    local response = req({
        Url = 'http://mana42138.pythonanywhere.com/use_key',
        Method = 'POST',
