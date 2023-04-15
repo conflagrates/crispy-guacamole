@@ -1,7 +1,7 @@
 -- // Library
 local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/vozoid/ui-libraries/main/venus/source.lua", true))()
 
-local Main = library:Load({Name = "Yor's Hub", Theme = "Dark", SizeX = 440, SizeY = 480, ColorOverrides = {}})
+local Main = library:Load({Name = "Yor's", Theme = "Dark", SizeX = 440, SizeY = 480, ColorOverrides = {}})
 
 -- // Tabs
 local Essentials = Main:Tab("Essentials")
