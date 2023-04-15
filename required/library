@@ -1,5 +1,5 @@
 -- // Egoist
-if game.PlaceID == 10742364019 then
+if game.PlaceId == 10742364019 then
 loadstring(game:HttpGet("https://github.com/euronetic/crispy-guacamole/blob/main/required/games/egoist?raw=true"))()
 
 -- // Other Game
