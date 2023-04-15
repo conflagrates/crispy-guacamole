@@ -1,28 +1,27 @@
 -- // Key System
 local req = (syn and syn.request) or (http and http.request) or http_request
-
-local key_Skeet = "Team-Skeet-c8b1cd784861340e688bb94e95df8390" -- get a key from the discord bot
-   local response = req({
-       Url = 'http://mana42138.pythonanywhere.com/use_key',
-       Method = 'POST',
-       Headers = {
-           ['Content-Type'] = 'application/json'
-       },
-       Body = game:GetService('HttpService'):JSONEncode({
-           key=key_Skeet
-       })
-   })
+local key_Skeet = "Team-Skeet-3ddb938fdad8c0409010cfcccafa1786"
+    local response = req({
+        Url = 'http://mana42138.pythonanywhere.com/use_key',
+        Method = 'POST',
+        Headers = {
+            ['Content-Type'] = 'application/json'
+        },
+        Body = game:GetService('HttpService'):JSONEncode({
+            key=key_Skeet
+        })
+    })
 
 local responsedata = game:GetService('HttpService'):JSONDecode(response.Body)
 
 table.foreach(responsedata, print)
 
 if responsedata["success"] then
-   print("success", 200)
-   -- Launch Script valid key.
+    print("success", 200)
+    -- Launch Script valid key.
 else
-   print("Error", 404)
-   -- Kick player error wrong key or already used key.
+    print("Error", 404)
+    -- Kick player error wrong key or already used key.
 end
 
 -- // Library
