@@ -9,6 +9,7 @@ local Essentials = Main:Tab("Essentials")
 local Efficiency = Essentials:Section({Name = "Efficiency", column = 1})
 local Visuals = Essentials:Section({Name = "Visuals", column = 1})
 local PlayerS = Essentials:Section({Name = "Player", column = 2})
+local Bons = Essentials:Section({Name = "Bons", column = 2})
 
 -- // Normal Vars
 local vim = game:GetService("VirtualInputManager")
