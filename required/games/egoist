@@ -131,7 +131,7 @@ local EnableBinds = Keybinds:Button({Name = "Enable - Z, C, X", Callback = funct
    vim:SendKeyEvent(true, "E", false, game)
    
    elseif input.KeyCode == Enum.KeyCode.X and not isTyping then
-   player.Character.HumanoidRootPart.CFrame = teleportTo.CFrame
+   player.Character.HumanoidRootPart.CFrame = teleportTo.CFrame + (0, 4, 0)
    end
    end)
 end})
