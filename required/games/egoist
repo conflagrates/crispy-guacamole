@@ -116,7 +116,7 @@ end})
 local EnableBinds = Keybinds:Button({Name = "Enable - Z, C, X", Callback = function()
    local uis = game:GetService("UserInputService")
    local player = game:GetService("Players").LocalPlayer
-   local teleportTo = game:GetService("Workspace").Clientballs.Clientball
+   local teleportTo = game:GetService("Workspace").ClientBalls.ClientBall
    
    uis.InputBegan:Connect(function(input, isTyping)
    
