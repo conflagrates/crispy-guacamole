@@ -121,12 +121,12 @@ local EnableBinds = Keybinds:Button({Name = "Enable - Z, C, X", Callback = funct
    uis.InputBegan:Connect(function(input, isTyping)
    
    if input.KeyCode == Enum.KeyCode.Z and not isTyping then
-   vim:SendKeyEvent(true, "Q", false, game)
+   vim:SendKeyEvent(true, "E", false, game)
    wait(0.5)
    vim:SendKeyEvent(true, "Q", false, game)
    
    elseif input.KeyCode == Enum.KeyCode.C and not isTyping then
-   vim:SendKeyEvent(true, "E", false, game)
+   vim:SendKeyEvent(true, "Q", false, game)
    wait(0.5)
    vim:SendKeyEvent(true, "E", false, game)
    
