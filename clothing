@@ -15,7 +15,7 @@ end
 _G.clothing = true
 
 while _G.clothing == true do
-repeat wait(1) until lplr.Character.Clothing and lplr.TurtleNeck and lplr["Left Arm"].Armband
+repeat wait() until lplr.Character.TurtleNeck and lplr.Character["Left Arm"].Armband
 clothes()
 task.wait(1)
 end
