@@ -1,0 +1,14 @@
+local lplr = game:GetService("Players").LocalPlayer
+local shirt = lplr.Character:WaitForChild("Shirt")
+local pants = shirt.Parent:WaitForChild("Pants")
+
+local function clothes()
+shirt.ShirtTemplate = "http://www.roblox.com/asset/?id=12902508304"
+pants.PantsTemplate = "http://www.roblox.com/asset/?id=12902511440"
+lplr.Character.Clothing:Destroy()
+lplr.Character.Clothing:Destroy()
+lplr.Character["Left Arm"].Armband:Destroy()
+lplr.Character.TurtleNeck:Destroy()
+task.wait(nil)
+end
+
