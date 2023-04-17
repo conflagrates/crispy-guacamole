@@ -9,13 +9,14 @@ lplr.Character.Clothing:Destroy()
 lplr.Character.Clothing:Destroy()
 lplr.Character["Left Arm"].Armband:Destroy()
 lplr.Character.TurtleNeck:Destroy()
-task.wait(nil)
+task.wait(1)
 end
 
 _G.clothing = true
 
 while _G.clothing == true do
-clothes()
 repeat wait(1) until lplr.Character.Clothing and lplr.TurtleNeck and lplr["Left Arm"].Armband
-task.wait(0.01)
+clothes()
+task.wait(1)
+end
 end
