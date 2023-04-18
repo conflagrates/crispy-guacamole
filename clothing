@@ -14,7 +14,7 @@ lplr.Character.Clothing.Name = "Shirt1"
 lplr.Character.Clothing.Name = "Pants1"
 lplr.Character.TurtleNeck:Destroy()
 lplr.Character["Left Arm"].Armband:Destroy()
-task.wait(1)
+task.wait(nil)
 local shirt = lplr.Character.Shirt1
 local pants = shirt.Parent.Pants1
 shirt.ShirtTemplate = "http://www.roblox.com/asset/?id=12902508304"
