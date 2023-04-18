@@ -1,3 +1,4 @@
+local uis = game:GetService("UserInputService")
 local lplr = game:GetService("Players").LocalPlayer
 local shirt = lplr.Character:WaitForChild("Shirt")
 local pants = shirt.Parent:WaitForChild("Pants")
@@ -12,15 +13,12 @@ lplr.Character.TurtleNeck:Destroy()
 task.wait(1)
 end
 
-local function clothes1()
-repeat wait() until lplr.Character.TurtleNeck and lplr.Character["Left Arm"].Armband
+lplr.Character.Humanoid.Died:Connect(function()
 clothes()
-task.wait(1)
+end)
+
+uis.InputBegan:Connect(function(input)
+if input.KeyCode == Enum.KeyCode.W or Enum.KeyCode.A or Enum.KeyCode.S or Enum.KeyCode.D then
+clothes()
 end
-
-_G.clothing = true
-
-while _G.clothing == true do
-repeat clothes1() until lplr:WaitForChild("bigblackman")
-wait(1)
 end
