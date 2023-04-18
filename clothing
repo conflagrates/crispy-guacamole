@@ -13,8 +13,8 @@ task.wait(1)
 end
 
 local uis = game:GetService("UserInputService")
-uis.InputBegan:Connect(function(input)
-if input.KeyCode == Enum.KeyCode.W or Enum.KeyCode.A or Enum.KeyCode.S or Enum.KeyCode.D then
+uis.InputBegan:Connect(function(input, isTyping)
+if input.KeyCode == Enum.KeyCode.W and not isTyping then
 clothes()
 end
 end
