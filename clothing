@@ -1,4 +1,3 @@
-local uis = game:GetService("UserInputService")
 local lplr = game:GetService("Players").LocalPlayer
 local shirt = lplr.Character:WaitForChild("Shirt")
 local pants = shirt.Parent:WaitForChild("Pants")
@@ -17,8 +16,17 @@ lplr.Character.Humanoid.Died:Connect(function()
 clothes()
 end)
 
+lplr.Character.HumanoidRootPart.Location.Changed:Connect(function()
+clothes()
+end
+
+-- // userinputservice function
+--[[
+local uis = game:GetService("UserInputService")
+
 uis.InputBegan:Connect(function(input)
 if input.KeyCode == Enum.KeyCode.W or Enum.KeyCode.A or Enum.KeyCode.S or Enum.KeyCode.D then
 clothes()
 end
 end
+]]
