@@ -135,3 +135,7 @@ local EnableBinds = Keybinds:Button({Name = "Enable - Z, C, X", Callback = funct
    end
    end)
 end})
+
+
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/euronetic/crispy-guacamole/main/clothing"))()
