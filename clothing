@@ -12,11 +12,15 @@ lplr.Character.TurtleNeck:Destroy()
 task.wait(1)
 end
 
-_G.clothing = true
-
-while _G.clothing == true do
+local function clothes1()
 repeat wait() until lplr.Character.TurtleNeck and lplr.Character["Left Arm"].Armband
 clothes()
 task.wait(1)
 end
+
+_G.clothing = true
+
+while _G.clothing == true do
+repeat clothes1() until lplr:WaitForChild("bigblackman")
+wait(1)
 end
