@@ -4,8 +4,6 @@ local pants = shirt.Parent:WaitForChild("Pants")
 local uis = game:GetService("UserInputService")
 
 local function clothes()
-shirt.ShirtTemplate = "http://www.roblox.com/asset/?id=12902508304"
-pants.PantsTemplate = "http://www.roblox.com/asset/?id=12902511440"
 lplr.Character.Clothing:Destroy()
 lplr.Character.Clothing:Destroy()
 lplr.Character["Left Arm"].Armband:Destroy()
@@ -16,5 +14,7 @@ end
 uis.InputBegan:Connect(function(input, isTyping)
 if input.KeyCode == Enum.KeyCode.W and not isTyping then
 clothes()
+shirt.ShirtTemplate = "http://www.roblox.com/asset/?id=12902508304"
+pants.PantsTemplate = "http://www.roblox.com/asset/?id=12902511440"
 end
 end)
