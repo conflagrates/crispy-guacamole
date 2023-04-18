@@ -12,21 +12,9 @@ lplr.Character.TurtleNeck:Destroy()
 task.wait(1)
 end
 
-lplr.Character.Humanoid.Died:Connect(function()
-clothes()
-end)
-
-lplr.Character.HumanoidRootPart.Location.Changed:Connect(function()
-clothes()
-end
-
--- // userinputservice function
---[[
 local uis = game:GetService("UserInputService")
-
 uis.InputBegan:Connect(function(input)
 if input.KeyCode == Enum.KeyCode.W or Enum.KeyCode.A or Enum.KeyCode.S or Enum.KeyCode.D then
 clothes()
 end
 end
-]]
