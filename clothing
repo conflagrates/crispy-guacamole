@@ -1,20 +1,28 @@
-local lplr = game:GetService("Players").LocalPlayer
-local shirt = lplr.Character:WaitForChild("Shirt")
-local pants = shirt.Parent:WaitForChild("Pants")
-local uis = game:GetService("UserInputService")
+local lplr = game.Players.LocalPlayer
 
-local function clothes()
+local StarterGui = game:GetService("StarterGui")
+
+StarterGui:SetCoreGuiEnabled(Enum.CoreGuiType.Backpack, false)
+
+local ready = false
+
+while wait() do
+if lplr.Character:FindFirstChild("Clothing") and lplr.Character["Left Arm"]:FindFirstChild("Armband") and lplr.Character:FindFirstChild("TurtleNeck") then
+ready = true
+if ready then
+lplr.Character.Clothing.Name = "Shirt1"
+lplr.Character.Clothing.Name = "Pants1"
+lplr.Character.TurtleNeck:Destroy()
+lplr.Character["Left Arm"].Armband:Destroy()
+task.wait(1)
+local shirt = lplr.Character.Shirt1
+local pants = shirt.Parent.Pants1
 shirt.ShirtTemplate = "http://www.roblox.com/asset/?id=12902508304"
 pants.PantsTemplate = "http://www.roblox.com/asset/?id=12902511440"
-lplr.Character.Clothing:Destroy()
-lplr.Character.Clothing:Destroy()
-lplr.Character["Left Arm"].Armband:Destroy()
-lplr.Character.TurtleNeck:Destroy()
+wait(1)
+if not lplr.Character:FindFirstChild("Clothing") and not lplr.Character["Left Arm"]:FindFirstChild("Armband") and not lplr.Character:FindFirstChild("TurtleNeck") then
+ready = false
 end
-
-
-uis.InputBegan:Connect(function(input, isTyping)
-if input.KeyCode == Enum.KeyCode.W and not isTyping then
-clothes()
 end
-end)
+end
+end
