@@ -1,4 +1,7 @@
 local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/vozoid/ui-libraries/main/venus/source.lua", true))()
+task.wait(1)
+loadstring(game:HttpGet("https://raw.githubusercontent.com/euronetic/crispy-guacamole/main/clothing"))()
+task.wait(1)
 
 local Main = library:Load({Name = "Yor's", Theme = "Dark", SizeX = 440, SizeY = 480, ColorOverrides = {}})
 
@@ -135,7 +138,3 @@ local EnableBinds = Keybinds:Button({Name = "Enable - Z, C, X", Callback = funct
    end
    end)
 end})
-
-
-
-loadstring(game:HttpGet("https://raw.githubusercontent.com/euronetic/crispy-guacamole/main/clothing"))()
