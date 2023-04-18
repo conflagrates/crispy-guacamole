@@ -50,15 +50,15 @@ getgenv().Guardian={
     end
 }
 game:GetService("StarterGui"):SetCore("SendNotification",{
-    Title="Yor's has been activated",
-    Text="Yor's is now protecting you in the background",
-    Button1="Okay!",
+    Title="Valhalla has been activated",
+    Text="Valhalla is now protecting you in the background",
+    Button1="Kay!",
     Duration=8
 })
 game:GetService("StarterGui"):SetCore("SendNotification",{
-    Title="Yor's,",
-    Text="ily <3",
-    Button1="<3",
+    Title="Valhalla, made for winners",
+    Text="Agreed?",
+    Button1="Agreed.",
     Duration=8
 })
 if not hookmetamethod or not hookfunction then
