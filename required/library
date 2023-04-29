@@ -1,3 +1,12 @@
+-- // Console
+loadstring(game:HttpGet("https://raw.githubusercontent.com/euronetic/crispy-guacamole/main/required/console"))()
+
+task.wait(1)
+-- // Guardian
+loadstring(game:HttpGet("https://raw.githubusercontent.com/euronetic/crispy-guacamole/main/required/guardian.lua"))()
+
+task.wait(1)
+
 -- // Egoist
 if game.PlaceId == 10742364019 then
 loadstring(game:HttpGet("https://github.com/euronetic/crispy-guacamole/blob/main/required/games/egoist?raw=true"))()
@@ -7,10 +16,3 @@ elseif game.PlaceID == 0 then
 
 end
 
-task.wait(1)
--- // Console
-loadstring(game:HttpGet("https://raw.githubusercontent.com/euronetic/crispy-guacamole/main/required/console"))()
-
-task.wait(1)
--- // Guardian
-loadstring(game:HttpGet("https://raw.githubusercontent.com/euronetic/crispy-guacamole/main/required/guardian.lua"))()
