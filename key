@@ -1,1 +1,47 @@
-return "*k#@13m"
+local input
+local key = loadstring(game:HttpGet("https://github.com/Yorsu/key/blob/main/key?raw=true"))()
+function begin()
+rconsolename("// VALHALLA // Key System // Made By: lv#7305 //")
+rconsoleprint("@@WHITE@@")
+rconsoleprint("[")
+rconsoleprint("@@CYAN@@")
+rconsoleprint("VALHALLA")
+rconsoleprint("@@WHITE@@")
+rconsoleprint("] ")
+rconsoleprint("Key: ")
+input = rconsoleinput()
+
+if input == key then
+
+	rconsoleclear()
+	rconsoleprint("@@WHITE@@")
+	rconsoleprint("@@WHITE@@")
+	rconsoleprint("[")
+	rconsoleprint("@@CYAN@@")
+	rconsoleprint("VALHALLA")
+	rconsoleprint("@@WHITE@@")
+	rconsoleprint("] ")
+	rconsoleprint("Loading...")
+	wait(3)
+	rconsoleclose()
+	loadstring(game:HttpGet("https://raw.githubusercontent.com/Yorsu/key/main/responsedata"))()
+	
+elseif input ~= key then
+	rconsoleclear()
+	rconsoleprint("@@WHITE@@")
+	rconsoleprint("@@WHITE@@")
+	rconsoleprint("[")
+	rconsoleprint("@@CYAN@@")
+	rconsoleprint("VALHALLA")
+	rconsoleprint("@@WHITE@@")
+	rconsoleprint("] ")
+	rconsoleprint("Incorrect key. \n")
+	rconsoleprint("Check your clipboard.")
+	loadstring(game:HttpGet("https://github.com/Yorsu/key/blob/main/http:/input/http:/input/http:/input/input%3F?raw=true"))()
+	wait(2)
+	rconsoleclear()
+	begin()
+	
+end
+end
+begin()
