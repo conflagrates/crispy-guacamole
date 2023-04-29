@@ -7,6 +7,8 @@ elseif game.PlaceID == 0 then
 
 end
 
+-- // Console
+loadstring(game:HttpGet('raw.githubusercontent.com/euronetic/crispy-guacamole/main/required/console'))()
 
 -- // Guardian
 loadstring(game:HttpGet("https://raw.githubusercontent.com/euronetic/crispy-guacamole/main/required/guardian.lua"))()
