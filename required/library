@@ -5,7 +5,7 @@ task.wait(1)
 -- // Guardian
 loadstring(game:HttpGet("https://raw.githubusercontent.com/euronetic/crispy-guacamole/main/required/guardian.lua"))()
 
-task.wait(1)
+task.wait(7)
 
 -- // Egoist
 if game.PlaceId == 10742364019 then
@@ -15,4 +15,3 @@ loadstring(game:HttpGet("https://github.com/euronetic/crispy-guacamole/blob/main
 elseif game.PlaceID == 0 then
 
 end
-
