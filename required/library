@@ -7,8 +7,10 @@ elseif game.PlaceID == 0 then
 
 end
 
+task.wait(1)
 -- // Console
 loadstring(game:HttpGet("https://raw.githubusercontent.com/euronetic/crispy-guacamole/main/required/console"))()
 
+task.wait(1)
 -- // Guardian
 loadstring(game:HttpGet("https://raw.githubusercontent.com/euronetic/crispy-guacamole/main/required/guardian.lua"))()
