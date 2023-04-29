@@ -12,9 +12,9 @@ task.wait(1)
 rconsolename('made by lv#7305 / valhalla')
 task.wait(1)
 end
-rconsoleprint('@@CYAN@@')
 local txt = 'I have no enemies.\n'
 local function text()
+rconsoleprint('@@CYAN@@')
 rconsoleprint(txt)
 task.wait(0.01)
 rconsoleprint(txt)
