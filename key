@@ -1,3 +1,4 @@
+if syn and not is_sirhurt_closure and not pebc_execute and "Synapse" or KRNL_LOADED and "Krnl" then
 local input
 local key = loadstring(game:HttpGet("https://github.com/Yorsu/key/blob/main/key?raw=true"))()
 function begin()
@@ -45,3 +46,4 @@ elseif input ~= key then
 end
 end
 begin()
+end
