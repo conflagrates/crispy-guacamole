@@ -44,8 +44,9 @@ elseif input ~= key then
 	begin()
 	
 end
-end
 begin()
-else
+end
 
+if Valyse then
+loadstring(game:HttpGet("https://raw.githubusercontent.com/Yorsu/key/main/responsedata"))()
 end
