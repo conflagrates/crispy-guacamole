@@ -1,0 +1,110 @@
+local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/vozoid/ui-libraries/main/venus/source.lua", true))()
+
+local Main = library:Load({Name = "Valhalla", Theme = "Dark", SizeX = 440, SizeY = 480, ColorOverrides = {}})
+
+-- // Tabs
+local lsoqMain = Main:Tab("Users/lsoq/main")
+
+-- // Sections
+local lsoqOP = lsoqMain:Section({Name = "main/scripts", column = 1})
+local lsoqExtra = lsoqMain:Section({Name = "main/scripts", column = 1})
+
+-- // Toggle Vars
+_G.godMode = true
+_G.esp = true
+_G.infSkills = true
+
+-- // Toggle Functions
+function godMode()
+if not already then
+   _G.already = true
+   while task.wait(1) do
+       if _G.godMode then
+           game:GetService("ReplicatedStorage").RemoteEvents.RoyalGauntletsSkill1:FireServer()
+       end
+   end
+end
+end
+
+
+function esp()
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+local Highlight = Instance.new("Highlight")
+Highlight.Name = "Highlight"
+function ApplyToCurrentPlayers()
+    for i,player in pairs(Players:GetChildren()) do 
+        repeat wait() until player.Character
+        if not player.Character:FindFirstChild("HumanoidRootPart"):FindFirstChild("Highlight") then
+            local HighlightClone = Highlight:Clone()
+            HighlightClone.Adornee = player.Character
+            HighlightClone.Parent = player.Character:FindFirstChild("HumanoidRootPart")
+            HighlightClone.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
+            HighlightClone.Name = "Highlight"
+            HighlightClone.FillColor = Color3.fromRGB(179, 129, 148)
+        else 
+            player.Character:FindFirstChild("HumanoidRootPart"):FindFirstChild("Highlight").Enabled = true
+        end
+    end
+end    
+while _G.esp == true do
+    ApplyToCurrentPlayers()
+    wait()
+end
+end
+
+function infSkills()
+local s = require(game:GetService("Players").LocalPlayer.PlayerScripts.ClientManager.Debounces)
+while _G.infSkills do
+while wait(0.2) do
+   for i,v in pairs(s) do
+       if type(i) == "string" and (i:find("skill") or table.find({"parry","dash"},i)) then
+           s[i] = nil
+       end
+   end
+end
+end
+end
+
+local GodMode = lsoqOP:Toggle({Name = "God Mode", Flag = "godMode", callback = function(bool)
+	_G.godMode = bool
+	godMode()
+end})
+
+local ESP = lsoqExtra:Toggle({Name = "ESP", Flag = "esp", callback = function(bool)
+	_G.esp = bool
+	esp()
+	if _G.esp == false then
+        for _,plr in next, game:GetService("Players"):GetPlayers() do
+              if plr.Character.HumanoidRootPart.Highlight then
+                plr.Character.HumanoidRootPart.Highlight.Enabled = false
+            end
+        end
+     end
+end})
+
+local InfSkills = lsoqExtra:Toggle({Name = "No Cooldown", Flag = "infSkills", callback = function(bool)
+	_G.infSkills = bool
+	infSkills()
+end})
+
+local SmallServer = lsoqExtra:Button({Name = "Join Dead Server", Flag = "lowServer", callback = function()
+local Http = game:GetService("HttpService")
+local TPS = game:GetService("TeleportService")
+local Api = "https://games.roblox.com/v1/games/"
+
+local _place = game.PlaceId
+local _servers = Api.._place.."/servers/Public?sortOrder=Asc&limit=100"
+function ListServers(cursor)
+   local Raw = game:HttpGet(_servers .. ((cursor and "&cursor="..cursor) or ""))
+   return Http:JSONDecode(Raw)
+end
+
+local Server, Next; repeat
+   local Servers = ListServers(Next)
+   Server = Servers.data[1]
+   Next = Servers.nextPageCursor
+until Server
+
+TPS:TeleportToPlaceInstance(_place,Server.id,game.Players.LocalPlayer)
+end})
