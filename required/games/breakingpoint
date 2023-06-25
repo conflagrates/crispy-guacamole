@@ -21,8 +21,6 @@ local emotes = lsoqPurchase:Section({Name = "Emotes", column = 1})
 _G.esp = true
 _G.unban = true
 
-local unbanLabel1 = trdMain:Label("toggle and join on a trade-banned")
-
 local tutacc = accessories:Label("say !join me after clicking")
 local tutknife = knives:Label("say !join me after clicking")
 local tutemo = emotes:Label("say !join me after clicking")
@@ -144,6 +142,6 @@ until Server
 TPS:TeleportToPlaceInstance(_place,Server.id,game.Players.LocalPlayer)
 end})
 
-local unbanLabel2 = trdMain:Label("alt to unban that alt until it")
-local unbanLabel3 = trdMain:Label("leaves that specific server or")
-local unbanLabel4 = trdMain:Label("until you toggle this off")
+local unbanLabel1 = trdMain:Label("join on a trade-banned alt")
+local unbanLabel2 = trdMain:Label("and toggle this on but it")
+local unbanLabel3 = trdMain:Label("only lasts until you leave")
