@@ -3,11 +3,11 @@ local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/vozoi
 local Main = library:Load({Name = "Valhalla", Theme = "Dark", SizeX = 440, SizeY = 480, ColorOverrides = {}})
 
 -- // Tabs
-local lsoqMain = Main:Tab("Users/lsoq/main")
+local lsoqMain = Main:Tab("Main Menu")
 
 -- // Sections
-local lsoqOP = lsoqMain:Section({Name = "main/scripts", column = 1})
-local lsoqExtra = lsoqMain:Section({Name = "main/scripts", column = 1})
+local lsoqOP = lsoqMain:Section({Name = "OP Scripts", column = 1})
+local lsoqExtra = lsoqMain:Section({Name = "Extra Scripts", column = 1})
 
 -- // Toggle Vars
 _G.godMode = true
