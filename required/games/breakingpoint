@@ -1,34 +1,61 @@
---/e rain - 3 Credits
-local args = {
-    [1] = 66,
-    [2] = "Animations",
-    [3] = "Exclusive"
-}
+local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/vozoid/ui-libraries/main/venus/source.lua", true))()
 
-game:GetService("ReplicatedStorage").RemoteFunction:InvokeServer(unpack(args))
+local Main = library:Load({Name = "Valhalla", Theme = "Dark", SizeX = 440, SizeY = 480, ColorOverrides = {}})
 
---CANDY CROWN - 10,000 Credits
+-- // Tabs
+local lsoqMain = Main:Tab("Main")
+local lsoqPurchase = Main:Tab("Purchase")
 
-local args = {
-    [1] = 66,
-    [2] = "Knife Skins",
-    [3] = "Winter Gift"
-}
+-- // Sections
+local lsoqExtra = lsoqMain:Section({Name = "Extra", column = 1})
+local accessories = lsoqPurchase:Section({Name = "Accessories", column = 1})
+local knives = lsoqPurchase:Section({Name = "Knives", column = 2})
+local chairs = lsoqPurchase:Section({Name = "Chairs", column = 2})
+local emotes = lsoqPurchase:Section({Name = "Emotes", column = 1})
 
-game:GetService("ReplicatedStorage").RemoteFunction:InvokeServer(unpack(args))
+-- // Toggle Vars
+_G.esp = true
 
---ROYAL RED - 10,000 Credits
 
-local args = {
-    [1] = 66,
-    [2] = "Chair Skins",
-    [3] = "Winter"
-}
+function esp()
+local Players = game:GetService("Players")
+local RunService = game:GetService("RunService")
+local Highlight = Instance.new("Highlight")
+Highlight.Name = "Highlight"
+function ApplyToCurrentPlayers()
+    for i,player in pairs(Players:GetChildren()) do 
+        repeat wait() until player.Character
+        if not player.Character:FindFirstChild("HumanoidRootPart"):FindFirstChild("Highlight") then
+            local HighlightClone = Highlight:Clone()
+            HighlightClone.Adornee = player.Character
+            HighlightClone.Parent = player.Character:FindFirstChild("HumanoidRootPart")
+            HighlightClone.DepthMode = Enum.HighlightDepthMode.AlwaysOnTop
+            HighlightClone.Name = "Highlight"
+            HighlightClone.FillColor = Color3.fromRGB(179, 129, 148)
+        else 
+            player.Character:FindFirstChild("HumanoidRootPart"):FindFirstChild("Highlight").Enabled = true
+        end
+    end
+end    
+while _G.esp == true do
+    ApplyToCurrentPlayers()
+    wait()
+end
+end
 
-game:GetService("ReplicatedStorage").RemoteFunction:InvokeServer(unpack(args))
+local ESP = lsoqExtra:Toggle({Name = "ESP", Flag = "esp", callback = function(bool)
+	_G.esp = bool
+	esp()
+	if _G.esp == false then
+        for _,plr in next, game:GetService("Players"):GetPlayers() do
+              if plr.Character.HumanoidRootPart.Highlight then
+                plr.Character.HumanoidRootPart.Highlight.Enabled = false
+            end
+        end
+     end
+end})
 
---ANTLERS CASE - 10,000 Credits
-
+local Antlers = accessories:Button({Name = "Antlers - 10K Credits", Flag = "antlers", callback = function()
 local args = {
     [1] = 66,
     [2] = "Accessories",
@@ -36,3 +63,55 @@ local args = {
 }
 
 game:GetService("ReplicatedStorage").RemoteFunction:InvokeServer(unpack(args))
+end})
+
+local CandyCrown = knives:Button({Name = "Candy Crown - 10K Credits", Flag = "candycrown", callback = function()
+local args = {
+    [1] = 66,
+    [2] = "Knife Skins",
+    [3] = "Winter Gift"
+}
+
+game:GetService("ReplicatedStorage").RemoteFunction:InvokeServer(unpack(args))
+end})
+
+local RoyalRed = chairs:Button({Name = "Royal Red - 10K Credits", Flag = "royalred", callback = function()
+local args = {
+    [1] = 66,
+    [2] = "Chair Skins",
+    [3] = "Winter"
+}
+
+game:GetService("ReplicatedStorage").RemoteFunction:InvokeServer(unpack(args))
+end})
+
+local erain = emotes:Button({Name = "/e rain - 3 Credits", Flag = "rain", callback = function()
+local args = {
+    [1] = 66,
+    [2] = "Animations",
+    [3] = "Exclusive"
+}
+
+game:GetService("ReplicatedStorage").RemoteFunction:InvokeServer(unpack(args))
+end})
+
+local SmallServer = lsoqExtra:Button({Name = "Join Dead Server", Flag = "lowServer", callback = function()
+local Http = game:GetService("HttpService")
+local TPS = game:GetService("TeleportService")
+local Api = "https://games.roblox.com/v1/games/"
+
+local _place = game.PlaceId
+local _servers = Api.._place.."/servers/Public?sortOrder=Asc&limit=100"
+function ListServers(cursor)
+   local Raw = game:HttpGet(_servers .. ((cursor and "&cursor="..cursor) or ""))
+   return Http:JSONDecode(Raw)
+end
+
+local Server, Next; repeat
+   local Servers = ListServers(Next)
+   Server = Servers.data[1]
+   Next = Servers.nextPageCursor
+until Server
+
+TPS:TeleportToPlaceInstance(_place,Server.id,game.Players.LocalPlayer)
+end})
