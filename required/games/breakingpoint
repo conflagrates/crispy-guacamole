@@ -17,6 +17,11 @@ local emotes = lsoqPurchase:Section({Name = "Emotes", column = 1})
 _G.esp = true
 
 
+local tutacc = accessories:Label("say !join me after clicking")
+local tutknife = knives:Label("say !join me after clicking")
+local tutemo = emotes:Label("say !join me after clicking")
+local tutchair = chairs:Label("say !join me after clicking")
+
 function esp()
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
