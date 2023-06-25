@@ -5,9 +5,13 @@ local Main = library:Load({Name = "Valhalla", Theme = "Dark", SizeX = 440, SizeY
 -- // Tabs
 local lsoqMain = Main:Tab("Main Menu")
 local lsoqPurchase = Main:Tab("Purchase Menu")
+local lsoqTrading = Main:Tab("Trading")
 
 -- // Sections
 local lsoqExtra = lsoqMain:Section({Name = "Extra", column = 1})
+
+local trdMain = lsoqTrading:Section({Name = "Main", column = 1})
+
 local accessories = lsoqPurchase:Section({Name = "Knife Accessories", column = 1})
 local knives = lsoqPurchase:Section({Name = "Knives", column = 2})
 local chairs = lsoqPurchase:Section({Name = "Chairs", column = 2})
@@ -15,7 +19,9 @@ local emotes = lsoqPurchase:Section({Name = "Emotes", column = 1})
 
 -- // Toggle Vars
 _G.esp = true
+_G.unban = true
 
+local unbanLabel = trdMain:Label("click and join on trade-banned alt to unban that alt while in server")
 
 local tutacc = accessories:Label("say !join me after clicking")
 local tutknife = knives:Label("say !join me after clicking")
@@ -45,6 +51,18 @@ end
 while _G.esp == true do
     ApplyToCurrentPlayers()
     wait()
+end
+end
+
+function unban()
+while _G.unban do
+task.wait(nil)
+local args = {
+    [1] = 42,
+    [2] = true
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvent"):FireServer(unpack(args))
 end
 end
 
@@ -98,6 +116,11 @@ local args = {
 }
 
 game:GetService("ReplicatedStorage").RemoteFunction:InvokeServer(unpack(args))
+end})
+
+local unbanToggle = lsoqExtra:Toggle({Name = "Unban", Flag = "unban", callback = function(bool)
+_G.unban = bool
+unban()
 end})
 
 local SmallServer = lsoqExtra:Button({Name = "Join Dead Server", Flag = "lowServer", callback = function()
