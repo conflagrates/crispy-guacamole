@@ -3,8 +3,8 @@ local library = loadstring(game:HttpGet("https://raw.githubusercontent.com/vozoi
 local Main = library:Load({Name = "Valhalla", Theme = "Dark", SizeX = 440, SizeY = 480, ColorOverrides = {}})
 
 -- // Tabs
-local lsoqMain = Main:Tab("Main")
-local lsoqPurchase = Main:Tab("Purchase")
+local lsoqMain = Main:Tab("Main Menu")
+local lsoqPurchase = Main:Tab("Purchase Menu")
 
 -- // Sections
 local lsoqExtra = lsoqMain:Section({Name = "Extra", column = 1})
