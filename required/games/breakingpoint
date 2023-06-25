@@ -21,7 +21,7 @@ local emotes = lsoqPurchase:Section({Name = "Emotes", column = 1})
 _G.esp = true
 _G.unban = true
 
-local unbanLabel = trdMain:Label("click and join on trade-banned alt to unban that alt while in server")
+local unbanLabel1 = trdMain:Label("click and join on a trade-banned")
 
 local tutacc = accessories:Label("say !join me after clicking")
 local tutknife = knives:Label("say !join me after clicking")
@@ -118,7 +118,7 @@ local args = {
 game:GetService("ReplicatedStorage").RemoteFunction:InvokeServer(unpack(args))
 end})
 
-local unbanToggle = lsoqExtra:Toggle({Name = "Unban", Flag = "unban", callback = function(bool)
+local unbanToggle = trdMain:Toggle({Name = "Unban", Flag = "unban", callback = function(bool)
 _G.unban = bool
 unban()
 end})
@@ -143,3 +143,6 @@ until Server
 
 TPS:TeleportToPlaceInstance(_place,Server.id,game.Players.LocalPlayer)
 end})
+
+local unbanLabel2 = trdMain:Label("alt to unban that alt")
+local unbanLabel3 = trdMain:Label("until it leaves the server")
