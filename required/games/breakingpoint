@@ -8,7 +8,7 @@ local lsoqPurchase = Main:Tab("Purchase Menu")
 
 -- // Sections
 local lsoqExtra = lsoqMain:Section({Name = "Extra", column = 1})
-local accessories = lsoqPurchase:Section({Name = "Accessories", column = 1})
+local accessories = lsoqPurchase:Section({Name = "Knife Accessories", column = 1})
 local knives = lsoqPurchase:Section({Name = "Knives", column = 2})
 local chairs = lsoqPurchase:Section({Name = "Chairs", column = 2})
 local emotes = lsoqPurchase:Section({Name = "Emotes", column = 1})
