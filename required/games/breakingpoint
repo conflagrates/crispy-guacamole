@@ -21,7 +21,7 @@ local emotes = lsoqPurchase:Section({Name = "Emotes", column = 1})
 _G.esp = true
 _G.unban = true
 
-local unbanLabel1 = trdMain:Label("click and join on a trade-banned")
+local unbanLabel1 = trdMain:Label("toggle and join on a trade-banned")
 
 local tutacc = accessories:Label("say !join me after clicking")
 local tutknife = knives:Label("say !join me after clicking")
@@ -123,6 +123,10 @@ _G.unban = bool
 unban()
 end})
 
+local unbanLabel2 = trdMain:Label("alt to unban that alt until it")
+local unbanLabel3 = trdMain:Label("leaves that specific server or")
+local unbanLabel4 = trdMain:Label("until you toggle this off")
+
 local SmallServer = lsoqExtra:Button({Name = "Join Dead Server", Flag = "lowServer", callback = function()
 local Http = game:GetService("HttpService")
 local TPS = game:GetService("TeleportService")
@@ -144,5 +148,4 @@ until Server
 TPS:TeleportToPlaceInstance(_place,Server.id,game.Players.LocalPlayer)
 end})
 
-local unbanLabel2 = trdMain:Label("alt to unban that alt")
-local unbanLabel3 = trdMain:Label("until it leaves the server")
+
