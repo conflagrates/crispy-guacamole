@@ -123,10 +123,6 @@ _G.unban = bool
 unban()
 end})
 
-local unbanLabel2 = trdMain:Label("alt to unban that alt until it")
-local unbanLabel3 = trdMain:Label("leaves that specific server or")
-local unbanLabel4 = trdMain:Label("until you toggle this off")
-
 local SmallServer = lsoqExtra:Button({Name = "Join Dead Server", Flag = "lowServer", callback = function()
 local Http = game:GetService("HttpService")
 local TPS = game:GetService("TeleportService")
@@ -148,4 +144,6 @@ until Server
 TPS:TeleportToPlaceInstance(_place,Server.id,game.Players.LocalPlayer)
 end})
 
-
+local unbanLabel2 = trdMain:Label("alt to unban that alt until it")
+local unbanLabel3 = trdMain:Label("leaves that specific server or")
+local unbanLabel4 = trdMain:Label("until you toggle this off")
