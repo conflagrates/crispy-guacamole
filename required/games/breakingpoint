@@ -163,6 +163,8 @@ local args = {
     [2] = "Knife Skins",
     [3] = "Winter Gift"
 }
+game:GetService("ReplicatedStorage").RemoteFunction:InvokeServer(unpack(args))
+end})
 
 local legendaryKnives = knives:Toggle({Name = "Legendary Case", Flag = "legs", callback = function(bool)
 _G.legendary = bool
@@ -187,9 +189,6 @@ end})
 local colorsKnives = knives:Toggle({Name = "Colors", Flag = "colorss", callback = function(bool)
 _G.colors = bool
 colors()
-end})
-
-game:GetService("ReplicatedStorage").RemoteFunction:InvokeServer(unpack(args))
 end})
 
 local RoyalRed = chairs:Button({Name = "Royal Red - 10K Credits", Flag = "royalred", callback = function()
