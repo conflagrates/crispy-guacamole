@@ -11,10 +11,9 @@ local lsoqTrading = Main:Tab("Trading")
 local lsoqExtra = lsoqMain:Section({Name = "Extra", column = 1})
 local trdMain = lsoqTrading:Section({Name = "Main", column = 1})
 local accessories = lsoqPurchase:Section({Name = "Knife Accessories", column = 1})
-local knives1 = lsoqPurchase:Section({Name = "Knives", column = 2})
+local knives = lsoqPurchase:Section({Name = "Knives", column = 2})
 local chairs = lsoqPurchase:Section({Name = "Chairs", column = 2})
 local emotes = lsoqPurchase:Section({Name = "Emotes", column = 1})
-local knives = lsoqPurchase:Section({Name = "Auto-Buy Knives", column = 1})
 
 -- // Toggle Vars
 _G.esp = true
@@ -24,12 +23,13 @@ _G.rare = true
 _G.uncommon = true
 _G.common = true
 _G.colors = true
+_G.erain = true
 
 --// Tutorials
-local tutacc = accessories:Label("say !join me after clicking")
-local tutknife = knives1:Label("say !join me after clicking")
-local tutemo = emotes:Label("say !join me after clicking")
-local tutchair = chairs:Label("say !join me after clicking")
+local tutacc = accessories:Label("say !join me afterwards")
+local tutknife = knives:Label("say !join me afterwards")
+local tutemo = emotes:Label("say !join me afterwards")
+local tutchair = chairs:Label("say !join me afterwards")
 
 --// Main Functions
 function esp()
@@ -70,7 +70,7 @@ game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvent"):FireServer(unpa
 end
 end
 
---// Purchase Functions
+--// Auto-Purchase Functions
 function legendary()
 while _G.legendary do
 task.wait(nil)
@@ -135,6 +135,7 @@ local args = {
 game:GetService("ReplicatedStorage"):WaitForChild("RemoteFunction"):InvokeServer(unpack(args))
 end
 end
+
 local ESP = lsoqExtra:Toggle({Name = "ESP", Flag = "esp", callback = function(bool)
 	_G.esp = bool
 	esp()
@@ -157,7 +158,7 @@ local args = {
 game:GetService("ReplicatedStorage").RemoteFunction:InvokeServer(unpack(args))
 end})
 
-local CandyCrown = knives1:Button({Name = "Candy Crown - 10K Credits", Flag = "candycrown", callback = function()
+local CandyCrown = knives:Button({Name = "Candy Crown - 10K Credits", Flag = "candycrown", callback = function()
 local args = {
     [1] = 66,
     [2] = "Knife Skins",
@@ -211,6 +212,20 @@ local args = {
 game:GetService("ReplicatedStorage").RemoteFunction:InvokeServer(unpack(args))
 end})
 
+local slasherain = emotes:Toggle({Name = "Auto-Buy /e rain", Flag = "slasherain", callback = function(bool)
+_G.erain = bool
+while _G.erain do
+task.wait(nil)
+local args = {
+    [1] = 66,
+    [2] = "Animations",
+    [3] = "Exclusive"
+}
+
+game:GetService("ReplicatedStorage").RemoteFunction:InvokeServer(unpack(args))
+end
+end})
+
 local unbanToggle = trdMain:Toggle({Name = "Unban", Flag = "unban", callback = function(bool)
 _G.unban = bool
 unban()
@@ -235,6 +250,7 @@ local Server, Next; repeat
 until Server
 TPS:TeleportToPlaceInstance(_place,Server.id,game.Players.LocalPlayer)
 end})
+
 
 local unbanLabel1 = trdMain:Label("join on a trade-banned alt")
 local unbanLabel2 = trdMain:Label("and toggle this on but it")
