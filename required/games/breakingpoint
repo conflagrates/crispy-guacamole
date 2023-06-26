@@ -13,16 +13,22 @@ local lsoqExtra = lsoqMain:Section({Name = "Extra", column = 1})
 local trdMain = lsoqTrading:Section({Name = "Main", column = 1})
 
 local accessories = lsoqPurchase:Section({Name = "Knife Accessories", column = 1})
-local knives = lsoqPurchase:Section({Name = "Knives", column = 2})
+local knives1 = lsoqPurchase:Section({Name = "Knives", column = 2})
 local chairs = lsoqPurchase:Section({Name = "Chairs", column = 2})
 local emotes = lsoqPurchase:Section({Name = "Emotes", column = 1})
+local knives = lsoqPurchase:Section({Name = "Auto-Buy Knives", column = 1})
 
 -- // Toggle Vars
 _G.esp = true
 _G.unban = true
+_G.legendary = true
+_G.rare = true
+_G.uncommon = true
+_G.common = true
+_G.colors = true
 
 local tutacc = accessories:Label("say !join me after clicking")
-local tutknife = knives:Label("say !join me after clicking")
+local tutknife = knives1:Label("say !join me after clicking")
 local tutemo = emotes:Label("say !join me after clicking")
 local tutchair = chairs:Label("say !join me after clicking")
 
@@ -64,6 +70,71 @@ game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvent"):FireServer(unpa
 end
 end
 
+function legendary()
+while _G.legendary do
+wait(1)
+local args = {
+    [1] = 66,
+    [2] = "Knife Skins",
+    [3] = "Legendary Case"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("RemoteFunction"):InvokeServer(unpack(args))
+end
+end
+
+function rare()
+while _G.rare do
+wait(1)
+local args = {
+    [1] = 66,
+    [2] = "Knife Skins",
+    [3] = "Rare Case"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("RemoteFunction"):InvokeServer(unpack(args))
+end
+end
+
+function uncommon()
+while _G.uncommon do
+wait(1)
+local args = {
+    [1] = 66,
+    [2] = "Knife Skins",
+    [3] = "Uncommon Case"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("RemoteFunction"):InvokeServer(unpack(args))
+end
+end
+
+function common()
+while _G.common do
+wait(1)
+local args = {
+    [1] = 66,
+    [2] = "Knife Skins",
+    [3] = "Common Case"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("RemoteFunction"):InvokeServer(unpack(args))
+end
+end
+
+function colors()
+while _G.colors do
+wait(1)
+local args = {
+    [1] = 66,
+    [2] = "Knife Skins",
+    [3] = "Colors"
+}
+
+game:GetService("ReplicatedStorage"):WaitForChild("RemoteFunction"):InvokeServer(unpack(args))
+end
+end
+
 local ESP = lsoqExtra:Toggle({Name = "ESP", Flag = "esp", callback = function(bool)
 	_G.esp = bool
 	esp()
@@ -86,12 +157,37 @@ local args = {
 game:GetService("ReplicatedStorage").RemoteFunction:InvokeServer(unpack(args))
 end})
 
-local CandyCrown = knives:Button({Name = "Candy Crown - 10K Credits", Flag = "candycrown", callback = function()
+local CandyCrown = knives1:Button({Name = "Candy Crown - 10K Credits", Flag = "candycrown", callback = function()
 local args = {
     [1] = 66,
     [2] = "Knife Skins",
     [3] = "Winter Gift"
 }
+
+local legendaryKnives = knives:Toggle({Name = "Legendary Case", Flag = "legs", callback = function(bool)
+_G.legendary = bool
+legendary()
+end})
+
+local rareKnives = knives:Toggle({Name = "Rare Case", Flag = "rares", callback = function(bool)
+_G.rare = bool
+rare()
+end})
+
+local uncommonKnives = knives:Toggle({Name = "Uncommon Case", Flag = "uncommons", callback = function(bool)
+_G.uncommon = bool
+uncommon()
+end})
+
+local commonKnives = knives:Toggle({Name = "Common Case", Flag = "commons", callback = function(bool)
+_G.common = bool
+common()
+end})
+
+local colorsKnives = knives:Toggle({Name = "Colors", Flag = "colorss", callback = function(bool)
+_G.colors = bool
+colors()
+end})
 
 game:GetService("ReplicatedStorage").RemoteFunction:InvokeServer(unpack(args))
 end})
@@ -138,7 +234,6 @@ local Server, Next; repeat
    Server = Servers.data[1]
    Next = Servers.nextPageCursor
 until Server
-
 TPS:TeleportToPlaceInstance(_place,Server.id,game.Players.LocalPlayer)
 end})
 
