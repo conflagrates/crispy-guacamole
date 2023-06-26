@@ -9,9 +9,7 @@ local lsoqTrading = Main:Tab("Trading")
 
 -- // Sections
 local lsoqExtra = lsoqMain:Section({Name = "Extra", column = 1})
-
 local trdMain = lsoqTrading:Section({Name = "Main", column = 1})
-
 local accessories = lsoqPurchase:Section({Name = "Knife Accessories", column = 1})
 local knives1 = lsoqPurchase:Section({Name = "Knives", column = 2})
 local chairs = lsoqPurchase:Section({Name = "Chairs", column = 2})
@@ -27,11 +25,13 @@ _G.uncommon = true
 _G.common = true
 _G.colors = true
 
+--// Tutorials
 local tutacc = accessories:Label("say !join me after clicking")
 local tutknife = knives1:Label("say !join me after clicking")
 local tutemo = emotes:Label("say !join me after clicking")
 local tutchair = chairs:Label("say !join me after clicking")
 
+--// Main Functions
 function esp()
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
@@ -70,9 +70,10 @@ game:GetService("ReplicatedStorage"):WaitForChild("RemoteEvent"):FireServer(unpa
 end
 end
 
+--// Purchase Functions
 function legendary()
 while _G.legendary do
-wait(1)
+task.wait(nil)
 local args = {
     [1] = 66,
     [2] = "Knife Skins",
@@ -85,7 +86,7 @@ end
 
 function rare()
 while _G.rare do
-wait(1)
+task.wait(nil)
 local args = {
     [1] = 66,
     [2] = "Knife Skins",
@@ -98,7 +99,7 @@ end
 
 function uncommon()
 while _G.uncommon do
-wait(1)
+task.wait(nil)
 local args = {
     [1] = 66,
     [2] = "Knife Skins",
@@ -111,7 +112,7 @@ end
 
 function common()
 while _G.common do
-wait(1)
+task.wait(nil)
 local args = {
     [1] = 66,
     [2] = "Knife Skins",
@@ -124,7 +125,7 @@ end
 
 function colors()
 while _G.colors do
-wait(1)
+task.wait(nil)
 local args = {
     [1] = 66,
     [2] = "Knife Skins",
@@ -134,7 +135,6 @@ local args = {
 game:GetService("ReplicatedStorage"):WaitForChild("RemoteFunction"):InvokeServer(unpack(args))
 end
 end
-
 local ESP = lsoqExtra:Toggle({Name = "ESP", Flag = "esp", callback = function(bool)
 	_G.esp = bool
 	esp()
