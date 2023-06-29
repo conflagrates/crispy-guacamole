@@ -1,4 +1,5 @@
 while getgenv().AutoFarm do
+task.wait(nil)
     game:GetService("ReplicatedStorage").RemoteEvent:FireServer(16, "public")
     wait()
     for i,v in pairs(game.Players:GetPlayers()) do
@@ -9,6 +10,7 @@ while getgenv().AutoFarm do
 end
 
 while getgenv().AutoFarm do
+task.wait(nil)
     for i,v in pairs(game.Players:GetPlayers()) do
         if v.Name ~= game.Players.LocalPlayer.Name then
             if game.Workspace:FindFirstChild(v.Name) then
