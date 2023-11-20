@@ -8,6 +8,13 @@ loadstring(game:HttpGet('https://raw.githubusercontent.com/1201for/littlegui/mai
 task.wait(1)
 
 --// Main Functions
+local UIS = game:GetService("UserInputService")
+UIS.InputBegan:Connect(function(input)
+    if input.UserInputType == Enum.UserInputType.Touch then
+        input.UserInputType = Enum.UserInputType.MouseButton1
+    end
+end)
+
 function esp()
 local Players = game:GetService("Players")
 local RunService = game:GetService("RunService")
