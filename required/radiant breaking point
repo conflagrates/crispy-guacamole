@@ -3,10 +3,6 @@ getgenv().esp = true
 getgenv().unban = true
 getgenv().AutoFarm = false
 
---// Loading The AutoFarm
-loadstring(game:HttpGet('https://raw.githubusercontent.com/1201for/littlegui/main/Breaking-Point'))()
-task.wait(1)
-
 --// Main Functions
 function esp()
 local Players = game:GetService("Players")
@@ -65,7 +61,6 @@ local Comp = Window:AddFolder"Competitive"
     Adding otpions
     All options will by default have their flag names set to whatever the text is, unless the flag is set
 ]]
-
  
 --Button
 --Market:AddButton({text = "Button", flag = "button", callback = function() print"pressed" end})
@@ -74,7 +69,7 @@ local Comp = Window:AddFolder"Competitive"
 --Toggle
 Market:AddToggle({text = "Unban", flag = "unban", state = false, callback = function(a) getgenv().unban = a unban() end})
 Comp:AddToggle({text = "ESP", flag = "esp", state = false, callback = function(a) getgenv().esp = a esp() if getgenv().esp == false then for _,plr in next, game:GetService("Players"):GetPlayers() do if plr.Character.HumanoidRootPart.Highlight then plr.Character.HumanoidRootPart.Highlight.Enabled = false end end end end})
-Comp:AddToggle({text = "Auto-Farm", flag = "autofarm", state = false, callback = function(a) getgenv().AutoFarm = a end})
+Comp:AddToggle({text = "Auto-Farm", flag = "autofarm", state = false, callback = function(a) getgenv().AutoFarm = a task.wait(1) loadstring(game:HttpGet('https://raw.githubusercontent.com/1201for/littlegui/main/Breaking-Point'))() task.wait(1) end})
 --If the state is set to true by default then it will fire the callback when the library is initialized
  
 --List
